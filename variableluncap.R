@@ -12,6 +12,8 @@ mean(LungCap[CatHeight=="F"])
 mod <- lm(LungCap ~ CatHeight)
 summary(mod)
 
-#change ref point from no to yes
+#change ref group (from no to yes) to reparamaterize model  
 
-Smoke <- relevel(Smoke, ref="yes")
+Smoke <- relevel(Smoke, "yes")
+
+mod2 <- lm(LungCap ~ Age + Smoke)
